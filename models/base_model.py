@@ -76,3 +76,27 @@ class BaseModel:
         obj_dict['created_at'] = self.created_at.isoformat()
         obj_dict['updated_at'] = self.updated_at.isoformat()
         return obj_dict
+
+    @classmethod
+    def create_from_dict(cls, data):
+        """
+        Creates an instance of the class using a
+        dictionary representation.
+
+        Args:
+            data (dict): Dictionary containing attributes
+            for the instance.
+
+        Returns:
+            cls: An instance of the class with attributes
+            populated from the dictionary.
+        """
+        if '__class__' in data:
+            class_name = data.pop('__class__')
+            if 'created_at' in data:
+                data['created_at'] = datetime.strptime
+                (data['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            if 'updated_at' in data:
+                data['updated_at'] = datetime.strptime
+                (data['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            return globals()[class_name](**data)
