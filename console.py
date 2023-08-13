@@ -31,7 +31,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         class_name = arg.split()[0]
-        if class_name not in ("BaseModel",):
+        if class_name not in ("BaseModel", "User"):
             print("** class doesn't exist **")
             return
 
