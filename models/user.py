@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-
 """
 User class.
 """
+
 import hashlib
 from models.base_model import BaseModel
 

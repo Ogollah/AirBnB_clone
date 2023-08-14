@@ -1,12 +1,11 @@
 #!/usr/bin/python3
+"""
+Base Model class.
+"""
 
 import uuid
 from datetime import datetime
 from models import storage
-
-"""
-Base Model class.
-"""
 
 
 class BaseModel:

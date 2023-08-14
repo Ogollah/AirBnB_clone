@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+""" TestBaseModel class """
 
 import unittest
 from models.base_model import BaseModel

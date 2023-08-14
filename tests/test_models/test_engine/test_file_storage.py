@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+TestFileStorage class
+"""
 
 import unittest
 import os

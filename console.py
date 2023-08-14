@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+"""
+HBNBCommand class.
+"""
+
 import cmd
 import json
 from models.base_model import BaseModel
 from models import storage
-"""
-HBNBCommand class.
-"""
 
 
 class HBNBCommand(cmd.Cmd):
