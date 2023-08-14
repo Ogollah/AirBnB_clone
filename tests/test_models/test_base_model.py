@@ -1,8 +1,11 @@
+#!/usr/bin/env python3
+
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
 import json
 import os
+
 
 class TestBaseModel(unittest.TestCase):
 
@@ -50,7 +53,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_to_dict_method(self):
         """
-        Test if the to_dict method returns the correct dictionary representation
+        Test if the to_dict method returns the correct
+        dictionary representation
         """
         obj_dict = self.model.to_dict()
         self.assertIsInstance(obj_dict, dict)
@@ -60,8 +64,10 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn("created_at", obj_dict)
         self.assertIn("updated_at", obj_dict)
         self.assertEqual(obj_dict["id"], self.model.id)
-        self.assertEqual(obj_dict["created_at"], self.model.created_at.isoformat())
-        self.assertEqual(obj_dict["updated_at"], self.model.updated_at.isoformat())
+        self.assertEqual(obj_dict["created_at"],
+                         self.model.created_at.isoformat())
+        self.assertEqual(obj_dict["updated_at"],
+                         self.model.updated_at.isoformat())
 
     def test_json_serialization(self):
         """
@@ -73,7 +79,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_json_deserialization(self):
         """
-        Test if a JSON representation can be deserialized back to a dictionary
+        Test if a JSON representation can be
+        deserialized back to a dictionary
         """
         obj_dict = self.model.to_dict()
         json_str = json.dumps(obj_dict)
@@ -84,6 +91,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn("id", new_obj_dict)
         self.assertIn("created_at", new_obj_dict)
         self.assertIn("updated_at", new_obj_dict)
+
 
 if __name__ == '__main__':
     unittest.main()
