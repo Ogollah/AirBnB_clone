@@ -2,6 +2,11 @@
 
 import json
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 """
 FileStorage class.
 """
@@ -61,6 +66,16 @@ class FileStorage:
                     class_name = obj_data['__class__']
                     if class_name == 'User':
                         obj = User.create_from_dict(obj_data)
+                    elif class_name == 'State':
+                        obj = State.create_from_dict(obj_data)
+                    elif class_name == 'City':
+                        obj = City.create_from_dict(obj_data)
+                    elif class_name == 'Amenity':
+                        obj = Amenity.create_from_dict(obj_data)
+                    elif class_name == 'Place':
+                        obj = Place.create_from_dict(obj_data)
+                    elif class_name == 'Review':
+                        obj = Review.create_from_dict(obj_data)
                     else:
                         obj = globals()[class_name].create_from_dict(obj_data)
                     FileStorage.__objects[key] = obj
