@@ -36,7 +36,8 @@ class TestHBNBCommand(TestCase):
         """
         Test the create command.
         """
-        with unittest.mock.patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+        with unittest.mock.patch("sys.stdout",
+                                 new_callable=io.StringIO) as mock_stdout:
             self.hbnb_cmd.onecmd("create BaseModel")
             output = mock_stdout.getvalue().strip()
             self.assertEqual(output, self.base_model.id)
@@ -45,7 +46,8 @@ class TestHBNBCommand(TestCase):
         """
         Test the show command.
         """
-        with unittest.mock.patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+        with unittest.mock.patch("sys.stdout",
+                                 new_callable=io.StringIO) as mock_stdout:
             self.hbnb_cmd.onecmd(
                 "show BaseModel {}".format(self.base_model.id))
             output = mock_stdout.getvalue().strip()
@@ -57,7 +59,8 @@ class TestHBNBCommand(TestCase):
         """
         obj_id = self.base_model.id
         key = "{}.{}".format(self.base_model.__class__.__name__, obj_id)
-        with unittest.mock.patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+        with unittest.mock.patch("sys.stdout",
+                                 new_callable=io.StringIO) as mock_stdout:
             self.hbnb_cmd.onecmd("destroy BaseModel {}".format(obj_id))
             output = mock_stdout.getvalue().strip()
             self.assertFalse(key in storage.all())
@@ -66,7 +69,8 @@ class TestHBNBCommand(TestCase):
         """
         Test the all command.
         """
-        with unittest.mock.patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+        with unittest.mock.patch("sys.stdout",
+                                 new_callable=io.StringIO) as mock_stdout:
             self.hbnb_cmd.onecmd("all")
             output = mock_stdout.getvalue().strip()
             self.assertIn(self.base_model.id, output)
@@ -77,7 +81,8 @@ class TestHBNBCommand(TestCase):
         """
         attr_name = "name"
         attr_value = "New Name"
-        with unittest.mock.patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+        with unittest.mock.patch("sys.stdout",
+                                 new_callable=io.StringIO) as mock_stdout:
             self.hbnb_cmd.onecmd("update BaseModel {} {} \"{}\"".format(
                 self.base_model.id, attr_name, attr_value))
             output = mock_stdout.getvalue().strip()
@@ -87,7 +92,8 @@ class TestHBNBCommand(TestCase):
         """
         Test wrong class name scenarios.
         """
-        with unittest.mock.patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+        with unittest.mock.patch("sys.stdout",
+                                 new_callable=io.StringIO) as mock_stdout:
             self.hbnb_cmd.onecmd("create WrongModel")
             output = mock_stdout.getvalue().strip()
             self.assertEqual(output, "** class doesn't exist **")
@@ -96,7 +102,8 @@ class TestHBNBCommand(TestCase):
         """
         Test wrong instance id scenarios.
         """
-        with unittest.mock.patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+        with unittest.mock.patch("sys.stdout",
+                                 new_callable=io.StringIO) as mock_stdout:
             self.hbnb_cmd.onecmd("show BaseModel wrong_id")
             output = mock_stdout.getvalue().strip()
             self.assertEqual(output, "** no instance found **")
@@ -105,7 +112,8 @@ class TestHBNBCommand(TestCase):
         """
         Test empty command scenario.
         """
-        with unittest.mock.patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+        with unittest.mock.patch("sys.stdout",
+                                 new_callable=io.StringIO) as mock_stdout:
             self.hbnb_cmd.onecmd("")
             output = mock_stdout.getvalue().strip()
             self.assertEqual(output, "")
