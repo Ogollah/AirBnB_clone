@@ -1,0 +1,25 @@
+header {
+    background-color: #fff;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo img {
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-text {
+    font-size: 30px;
+    margin-left: 10px;
+    color: rgb(7, 7, 7);
+}

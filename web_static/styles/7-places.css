@@ -1,0 +1,29 @@
+.places {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+
+.article-header {
+    font-size: 30px;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.place-name {
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 0 5px 0;
+}
